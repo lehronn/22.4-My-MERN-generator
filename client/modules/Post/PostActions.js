@@ -3,6 +3,8 @@ import callApi from '../../util/apiCaller';
 // Export Constants
 export const ADD_POST = 'ADD_POST';
 export const ADD_POSTS = 'ADD_POSTS';
+export const EDIT_POST = 'EDIT_POST';
+export const VOTE_POST = 'VOTE_POSTS';
 export const DELETE_POST = 'DELETE_POST';
 
 // Export Actions
@@ -59,8 +61,6 @@ export function deletePostRequest(cuid) {
   };
 }
 
-export const EDIT_POST = 'EDIT_POST';
-
 export function editPost(cuid, post) {
   return {
     type: EDIT_POST,
@@ -78,5 +78,25 @@ export function editPostRequest(cuid, post) {
         content: post.content,
       },
     }).then(() => dispatch(editPost(cuid, post)));
+  };
+}
+
+//konstruktor akcji dla reducera
+export function votePost(cuid, voteCount) {
+  return {
+    type: VOTE_POST,
+    cuid, //post`s id
+    voteCount,
+  };
+}
+
+//żądanie akcji do API callApi, przesyłamy głos czyli +1 albo -1 dzięki voteCount.
+export function votePostRequest(cuid, voteCount) {
+  return (dispatch) => {
+    return callApi(`posts/${cuid}`,'put', {
+      post: {
+        voteCount: post.voteCount,
+      },
+    }).then(() => dispatch(votePost(cuid, voteCount)));
   };
 }
