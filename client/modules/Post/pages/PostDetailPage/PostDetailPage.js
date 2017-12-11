@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { getShowEditPost } from '../../../App/AppReducer';
@@ -24,24 +24,6 @@ export class PostDetailPage extends Component {
       content: this.props.post.content,
     };
 
-    handleEditPost = () => {
-      this.props.toggleEditPost();
-      this.props.editPostRequest(this.state);
-    };
-
-    function mapDispatchToProps(dispatch, props) {
-      return {
-        toggleEditPost: () => dispatch(toggleEditPost()),
-        editPostRequest: (post) => dispatch(editPostRequest(props.params.cuid, post)),
-      };
-    }
-
-    function mapStateToProps(state, props) {
-      return {
-        post: getPost(state, props.params.cuid),
-        showEditPost: getShowEditPost(state),
-      };
-    }
   }
 
   handleInputChange = (event) => {
@@ -52,7 +34,10 @@ export class PostDetailPage extends Component {
     });
   };
 
-
+  handleEditPost = () => {
+    this.props.toggleEditPost();
+    this.props.editPostRequest(this.state);
+  };
 
   renderPostForm = () => {
     return (
@@ -101,6 +86,14 @@ PostDetailPage.need = [params => {
 function mapStateToProps(state, props) {
   return {
     post: getPost(state, props.params.cuid),
+    showEditPost: getShowEditPost(state),
+  };
+}
+
+function mapDispatchToProps(dispatch, props) {
+  return {
+    toggleEditPost: () => dispatch(toggleEditPost()),
+    editPostRequest: (post) => dispatch(editPostRequest(props.params.cuid, post)),
   };
 }
 
