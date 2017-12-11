@@ -7,3 +7,14 @@ export function toggleAddPost() {
     type: TOGGLE_ADD_POST,
   };
 }
+
+//Jest to prosty kreator akcji, który nie ma żadnych parametrów.
+// Będzie dwustanowym przełącznikiem, dzięki któremu będziemy mogli
+// przechodzić z trybu edycji do trybu podglądu i odwrotnie.
+export const TOGGLE_EDIT_POST = 'TOGGLE_EDIT_POST';
+
+export function toggleEditPost() {
+  return {
+    type: TOGGLE_EDIT_POST,
+  };
+}

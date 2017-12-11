@@ -58,3 +58,25 @@ export function deletePostRequest(cuid) {
     return callApi(`posts/${cuid}`, 'delete').then(() => dispatch(deletePost(cuid)));
   };
 }
+
+export const EDIT_POST = 'EDIT_POST';
+
+export function editPost(cuid, post) {
+  return {
+    type: EDIT_POST,
+    cuid, //post`s id
+    post,
+  };
+}
+
+export function editPostRequest(cuid, post) {
+  return (dispatch) => {
+    return callApi(`posts/${cuid}`,'put', {
+      post: {
+        name: post.name,
+        title: post.title,
+        content: post.content,
+      },
+    }).then(() => dispatch(editPost(cuid, post)));
+  };
+}
