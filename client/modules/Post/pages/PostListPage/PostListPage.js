@@ -30,10 +30,12 @@ class PostListPage extends Component {
   };
 
   handleVoteUpPost = (cuid, voteCount) => {
+    event.preventDefault();
     this.props.dispatch(votePostRequest({ cuid, voteCount }));
   };
 
   handleVoteDownPost = (cuid, voteCount) => {
+    event.preventDefault();
     this.props.dispatch(votePostRequest({ name, voteCount }));
   };
 

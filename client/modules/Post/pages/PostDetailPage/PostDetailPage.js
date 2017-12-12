@@ -22,6 +22,7 @@ export class PostDetailPage extends Component {
       name: this.props.post.name,
       title: this.props.post.title,
       content: this.props.post.content,
+      voteCount: this.props.post.voteCount,
     };
 
   }
@@ -55,7 +56,10 @@ export class PostDetailPage extends Component {
     return (
       <div className={`${styles['single-post']} ${styles['post-detail']}`}>
         <h3 className={styles['post-title']}>{this.props.post.title}</h3>
-        <p className={styles['author-name']}><FormattedMessage id="by" /> {this.props.post.name}</p>
+        <div>
+          <span className={styles['author-name']}><FormattedMessage id="by" /> {this.props.post.name}</span>
+          <span className={styles['post-votes-counter']}><FormattedMessage id="postCounter" /> {voteCount}</span>
+        </div>
         <p className={styles['post-desc']}>{this.props.post.content}</p>
         </div>
     );

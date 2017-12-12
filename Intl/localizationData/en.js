@@ -7,6 +7,8 @@ export default {
     switchLanguage: 'Switch Language',
     twitterMessage: 'We are on Twitter',
     by: 'By',
+    votePostUp: '+1',
+    votePostDown: '-1',
     deletePost: 'Delete Post',
     createNewPost: 'Create new post',
     authorName: 'Author\'s Name',
