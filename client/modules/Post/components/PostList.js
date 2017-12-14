@@ -11,9 +11,9 @@ function PostList(props) {
           <PostListItem
             post={post}
             key={post.cuid}
-            votePostUp={() => props.handleVoteUpPost(post.voteCount)}
-            votePostUp={() => props.handleVoteDownPost(post.voteCount)}
-            onDelete={() => props.handleDeletePost(post.cuid)}
+            votePostUp={(event) => {event.preventDefault(); props.handleVoteUpPost(post.cuid, post.voteCount)}}
+            votePostDown={(event) => {event.preventDefault(); props.handleVoteDownPost(post.cuid, post.voteCount)}}
+            onDelete={(event) => {event.preventDefault(); props.handleDeletePost(post.cuid)}}
           />
         ))
       }

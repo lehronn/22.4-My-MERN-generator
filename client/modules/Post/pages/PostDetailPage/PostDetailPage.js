@@ -58,7 +58,7 @@ export class PostDetailPage extends Component {
         <h3 className={styles['post-title']}>{this.props.post.title}</h3>
         <div>
           <span className={styles['author-name']}><FormattedMessage id="by" /> {this.props.post.name}</span>
-          <span className={styles['post-votes-counter']}><FormattedMessage id="postCounter" /> {voteCount}</span>
+          <span className={styles['post-votes-counter']}><FormattedMessage id="postCounter" /> {this.props.post.voteCount}</span>
         </div>
         <p className={styles['post-desc']}>{this.props.post.content}</p>
         </div>

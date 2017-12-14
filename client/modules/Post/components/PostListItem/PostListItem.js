@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import styles from './PostListItem.css';
 
 function PostListItem(props) {
+  console.log(props);
   return (
     <div className={styles['single-post']}>
       <h3 className={styles['post-title']}>
@@ -16,8 +17,8 @@ function PostListItem(props) {
       <p className={styles['author-name']}><FormattedMessage id="by" /> {props.post.name}</p>
       <p className={styles['post-desc']}>{props.post.content}</p>
       <div>
-      <span className={styles['post-action']}><a href="#" onClick={props.onVotePostUp}><FormattedMessage id="votePostUp" /></a></span>
-      <span className={styles['post-action']}><a href="#" onClick={props.onVotePostDown}><FormattedMessage id="votePostDown" /></a></span>
+      <span className={styles['post-action']}><a href="#" onClick={props.votePostUp}><FormattedMessage id="votePostUp" /></a></span>
+      <span className={styles['post-action']}><a href="#" onClick={props.votePostDown}><FormattedMessage id="votePostDown" /></a></span>
       <span className={styles['post-action']}><a href="#" onClick={props.onDelete}><FormattedMessage id="deletePost" /></a></span>
       </div>
       <hr className={styles.divider} />
@@ -34,8 +35,8 @@ PostListItem.propTypes = {
     cuid: PropTypes.string.isRequired,
     voteCount: PropTypes.number.isRequired,
   }).isRequired,
-    onVotePostUp: PropTypes.func.isRequired,
-    onVotePostDown: PropTypes.func.isRequired,
+    votePostUp: PropTypes.func.isRequired,
+    votePostDown: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
 };
 
