@@ -91,10 +91,7 @@ export function votePost(cuid, voteCount) {
   };
 }
 
-//żądanie akcji do API callApi, przesyłamy głos czyli +1 albo -1 dzięki voteCount.
 export function votePostRequest(cuid, voteCount) {
-  console.log(cuid);
-  console.log(voteCount);
   return (dispatch) => {
     return callApi(`posts/${cuid}`,'put', {
       post: {

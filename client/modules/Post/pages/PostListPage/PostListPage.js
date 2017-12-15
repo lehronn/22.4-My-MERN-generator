@@ -30,11 +30,11 @@ class PostListPage extends Component {
   };
 
   handleVoteUpPost = (cuid, voteCount) => {
-    this.props.dispatch(votePostRequest(cuid, voteCount++)); //przekazuję złą wartość.
+    this.props.dispatch(votePostRequest(cuid, voteCount+1)); //przekazuję złą wartość.
   };
 
   handleVoteDownPost = (cuid, voteCount) => {
-    this.props.dispatch(votePostRequest(cuid, voteCount--)); //przekazuję złą wartość.
+    this.props.dispatch(votePostRequest(cuid, voteCount-1)); //przekazuję złą wartość.
   };
 
   render() {
