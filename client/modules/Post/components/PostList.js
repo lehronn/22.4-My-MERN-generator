@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react';
 import PostListItem from './PostListItem/PostListItem';
 
 function PostList(props) {
+  console.log(props.posts)
   return (
     <div className="listView">
       {
